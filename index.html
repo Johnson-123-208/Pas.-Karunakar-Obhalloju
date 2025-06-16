@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pastor Karunakar Obhalloju - Servant of God</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #f39c12;
+            --text-light: #ecf0f1;
+            --text-dark: #2c3e50;
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* Language Toggle */
+        .lang-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+            padding: 8px 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .lang-toggle:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .lang-toggle span {
+            color: white;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        /* Header */
+        .header {
+            background: var(--gradient-1);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"><animate attributeName="opacity" dur="3s" values="0;1;0" repeatCount="indefinite"/></circle><circle cx="80" cy="30" r="1" fill="rgba(255,255,255,0.1)"><animate attributeName="opacity" dur="2s" values="0;1;0" repeatCount="indefinite" begin="1s"/></circle><circle cx="40" cy="70" r="1.5" fill="rgba(255,255,255,0.1)"><animate attributeName="opacity" dur="4s" values="0;1;0" repeatCount="indefinite" begin="2s"/></circle></svg>');
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero-content {
+            text-align: center;
+            color: white;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .pastor-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 0 auto 30px;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .pastor-photo:hover {
+            transform: scale(1.05);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+        }
+
+        .pastor-photo::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.3) 50%, transparent 70%);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .pastor-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(44, 62, 80, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 999;
+            padding: 15px 0;
+            transform: translateY(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .nav.scrolled {
+            transform: translateY(0);
+        }
+
+        .nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-3);
+            transition: left 0.3s ease;
+            z-index: -1;
+        }
+
+        .nav a:hover::before {
+            left: 0;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--gradient-2);
+            border-radius: 2px;
+        }
+
+        /* Bio Section */
+        .bio-content {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px 0;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .bio-content:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Contact Grid */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .contact-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-2);
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Photo Gallery */
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .photo-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            height: 250px;
+        }
+
+        .photo-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .photo-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .photo-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: white;
+            padding: 20px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .photo-item:hover .photo-overlay {
+            transform: translateY(0);
+        }
+
+        /* Church Timings */
+        .timing-card {
+            background: var(--gradient-1);
+            color: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .timing-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        /* Prayer Request Form */
+        .prayer-form {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            margin: 40px 0;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+        }
+
+        .submit-btn {
+            background: var(--gradient-2);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Photo Upload Section */
+        .upload-section {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 2px dashed var(--glass-border);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            margin: 40px 0;
+            transition: all 0.3s ease;
+        }
+
+        .upload-section:hover {
+            border-color: var(--secondary-color);
+            background: rgba(52, 152, 219, 0.1);
+        }
+
+        .upload-btn {
+            background: var(--gradient-3);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .upload-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* QR Code Section */
+        .qr-section {
+            background: var(--gradient-1);
+            color: white;
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .qr-code {
+            width: 200px;
+            height: 200px;
+            background: white;
+            border-radius: 15px;
+            margin: 20px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: #333;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .bible-verse {
+            font-style: italic;
+            font-size: 1.2rem;
+            margin: 20px 0;
+            opacity: 0.9;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .section {
+                padding: 60px 15px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .pastor-photo {
+                width: 150px;
+                height: 150px;
+            }
+
+            .nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .photo-gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Language Toggle -->
+    <div class="lang-toggle" onclick="toggleLanguage()">
+        <i class="fas fa-language"></i>
+        <span id="lang-text">తెలుగు</span>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav" id="navbar">
+        <ul>
+            <li><a href="#home" data-en="Home" data-te="హోమ్">Home</a></li>
+            <li><a href="#about" data-en="About" data-te="గురించి">About</a></li>
+            <li><a href="#contact" data-en="Contact" data-te="సంప్రదింపు">Contact</a></li>
+            <li><a href="#timings" data-en="Church Timings" data-te="చర్చి సమయాలు">Church Timings</a></li>
+            <li><a href="#gallery" data-en="Gallery" data-te="గ్యాలరీ">Gallery</a></li>
+            <li><a href="#prayer" data-en="Prayer Request" data-te="ప్రార్థన అభ్యర్థన">Prayer Request</a></li>
+            <li><a href="#offerings" data-en="Offerings" data-te="కానుకలు">Offerings</a></li>
+        </ul>
+    </nav>
+
+    <!-- Header Section -->
+    <section class="header" id="home">
+        <div class="hero-content">
+            <div class="pastor-photo" data-aos="zoom-in">
+                <img src="https://via.placeholder.com/200x200/667eea/ffffff?text=Pastor+Photo" alt="Pastor Karunakar Obhalloju">
+            </div>
+            <h1 class="hero-title" data-en="Pastor Karunakar Obhalloju" data-te="పాస్టర్ కరుణాకర్ ఓభల్లోజు">Pastor Karunakar Obhalloju</h1>
+            <p class="hero-subtitle" data-en="Servant of God | Spreading His Love" data-te="దేవుని సేవకుడు | ఆయన ప్రేమను వ్యాప్తి చేస్తున్నాడు">Servant of God | Spreading His Love</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <h2 class="section-title" data-en="About Pastor" data-te="పాస్టర్ గురించి">About Pastor</h2>
+        <div class="bio-content fade-in" data-aos="fade-up">
+            <p data-en="Pastor Karunakar Obhalloju has been serving the Lord for over 15 years with dedication and passion. His ministry focuses on spreading God's love, healing the broken-hearted, and building strong communities of faith. He believes in the transformative power of prayer and the importance of living according to God's word." data-te="పాస్టర్ కరుణాకర్ ఓభల్లోజు 15 సంవత్సరాలకు మించి అంకితభావంతో మరియు అభిరుచితో ప్రభువుకు సేవ చేస్తున్నారు. ఆయన సేవ దేవుని ప్రేమను వ్యాప్తి చేయడం, విరిగిన హృదయాలను స్వస్థపరచడం మరియు విశ్వాసపు బలమైన సంఘాలను నిర్మించడంపై దృష్టి పెట్టుతుంది. ఆయన ప్రార్థన యొక్క రూపాంతర శక్తిని మరియు దేవుని వాక్యం ప్రకారం జీవించడం యొక్క ప్రాముఖ్యతను విశ్వసిస్తారు.">
+                Pastor Karunakar Obhalloju has been serving the Lord for over 15 years with dedication and passion. His ministry focuses on spreading God's love, healing the broken-hearted, and building strong communities of faith. He believes in the transformative power of prayer and the importance of living according to God's word.
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <h2 class="section-title" data-en="Get In Touch" data-te="సంప్రదించండి">Get In Touch</h2>
+        <div class="contact-grid">
+            <div class="contact-card fade-in" data-aos="fade-up" data-aos-delay="100">
+                <div class="contact-icon">
+                    <i class="fab fa-instagram"></i>
+                </div>
+                <h3 data-en="Instagram" data-te="ఇన్స్టాగ్రామ్">Instagram</h3>
+                <a href="https://instagram.com/pastorkarunakar" target="_blank" data-en="Follow on Instagram" data-te="ఇన్స్టాగ్రామ్‌లో అనుసరించండి">Follow on Instagram</a>
+            </div>
+
+            <div class="contact-card fade-in" data-aos="fade-up" data-aos-delay="200">
+                <div class="contact-icon">
+                    <i class="fab fa-facebook"></i>
+                </div>
+                <h3 data-en="Facebook" data-te="ఫేస్‌బుక్">Facebook</h3>
+                <a href="https://facebook.com/pastorkarunakar" target="_blank" data-en="Connect on Facebook" data-te="ఫేస్‌బుక్‌లో కనెక్ట్ చేయండి">Connect on Facebook</a>
+            </div>
+
+            <div class="contact-card fade-in" data-aos="fade-up" data-aos-delay="300">
+                <div class="contact-icon">
+                    <i class="fab fa-whatsapp"></i>
+                </div>
+                <h3 data-en="WhatsApp" data-te="వాట్సాప్">WhatsApp</h3>
+                <a href="https://wa.me/919876543210" target="_blank" data-en="Message on WhatsApp" data-te="వాట్సాప్‌లో మెసేజ్ చేయండి">Message on WhatsApp</a>
+            </div>
+
+            <div class="contact-card fade-in" data-aos="fade-up" data-aos-delay="400">
+                <div class="contact-icon">
+                    <i class="fas fa-phone"></i>
+                </div>
+                <h3 data-en="Phone" data-te="ఫోన్">Phone</h3>
+                <a href="tel:+919876543210" data-en="+91 98765 43210" data-te="+91 98765 43210">+91 98765 43210</a>
+            </div>
+
+            <div class="contact-card fade-in" data-aos="fade-up" data-aos-delay="500">
+                <div class="contact-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <h3 data-en="Location" data-te="స్థానం">Location</h3>
+                <a href="https://maps.google.com/?q=Hyderabad,Telangana" target="_blank" data-en="View on Google Maps" data-te="గూగుల్ మ్యాప్స్‌లో చూడండి">View on Google Maps</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Church Timings Section -->
+    <section class="section" id="timings">
+        <h2 class="section-title" data-en="Church Timings" data-te="చర్చి సమయాలు">Church Timings</h2>
+        <div class="timing-card fade-in" data-aos="fade-up">
+            <h3 data-en="Service Schedule" data-te="సేవా షెడ్యూల్">Service Schedule</h3>
+            <div style="margin: 30px 0;">
+                <p data-en="Sunday Morning Service: 9:00 AM - 11:00 AM" data-te="ఆదివారం ఉదయం సేవ: 9:00 AM - 11:00 AM"><strong>Sunday Morning Service:</strong> 9:00 AM - 11:00 AM</p>
+                <p data-en="Sunday Evening Service: 6:00 PM - 8:00 PM" data-te="ఆదివారం సాయంత్రం సేవ: 6:00 PM - 8:00 PM"><strong>Sunday Evening Service:</strong> 6:00 PM - 8:00 PM</p>
+                <p data-en="Wednesday Prayer Meeting: 7:00 PM - 8:30 PM" data-te="బుధవారం ప్రార్థన సభ: 7:00 PM - 8:30 PM"><strong>Wednesday Prayer Meeting:</strong> 7:00 PM - 8:30 PM</p>
+                <p data-en="Friday Fasting Prayer: 6:00 PM - 9:00 PM" data-te="శుక్రవారం ఉపవాస ప్రార్థన: 6:00 PM - 9:00 PM"><strong>Friday Fasting Prayer:</strong> 6:00 PM - 9:00 PM</p>
+            </div>
+            <a href="https://drive.google.com/your-songs-book-link" target="_blank" class="upload-btn" data-en="📖 Access Songs Book" data-te="📖 పాటల పుస్తకాన్ని యాక్సెస్ చేయండి">📖 Access Songs Book</a>
+        </div>
+    </section>
+
+    <!-- Photo Gallery Section -->
+    <section class="section" id="gallery">
+        <h2 class="section-title" data-en="Church Gallery" data-te="చర్చి గ్యాలరీ">Church Gallery</h2>
+        <div class="photo-gallery">
+            <div class="photo-item fade-in" data-aos="fade-up">
+                <img src="https://via.placeholder.com/400x250/3498db/ffffff?text=Church+Building" alt="Church Building">
+                <div class="photo-overlay">
+                    <h4 data-en="Church Building" data-te="చర్చి భవనం">Church Building</h4>
+                    <p data-en="Our beautiful place of worship" data-te="మా అందమైన ఆరాధనా స్థలం">Our beautiful place of worship</p>
+                </div>
+            </div>
+            
+            <div class="photo-item fade-in" data-aos="fade-up" data-aos-delay="100">
+                <img src="https://via.placeholder.com/400x250/e74c3c/ffffff?text=Sunday+Service" alt="Sunday Service">
+                <div class="photo-overlay">
+                    <h4 data-en="Sunday Service" data-te="ఆదివారం సేవ">Sunday Service</h4>
+                    <p data-en="Community gathering in worship" data-te="ఆరాధనలో సంఘం సమావేశం">Community gathering in worship</p>
+                </div>
+            </div>
+            
+            <div class="photo-item fade-in" data-aos="fade-up" data-aos-delay="200">
+                <img src="https://via.placeholder.com/400x250/2ecc71/ffffff?text=Prayer+Meeting" alt="Prayer Meeting">
+                <div class="photo-overlay">
+                    <h4 data-en="Prayer Meeting" data-te="ప్రార్థన సభ">Prayer Meeting</h4>
+                    <p data-en="United in prayer and faith" data-te="ప్రార్థన మరియు విశ్వాసంలో ఐక్యత">United in prayer and faith</p>
+                </div>
+            </div>
+            
+            <div class="photo-item fade-in" data-aos="fade-up" data-aos-delay="300">
+                <img src="https://via.placeholder.com/400x250/9b59b6/ffffff?text=Youth+Activities" alt="Youth Activities">
+                <div class="photo-overlay">
+                    <h4 data-en="Youth Activities" data-te="యువజన కార్యకలాపాలు">Youth Activities</h4>
+                    <p data-en="Engaging the next generation" data-te="తరువాతి తరాన్ని నిమగ్నం చేయడం">Engaging the next generation</p>
+                </div>
+            </div>
+            
+            <div class="photo-item fade-in" data-aos="fade-up" data-aos-delay="400">
+                <img src="https://via.placeholder.com/400x250/f39c12/ffffff?text=Community+Service" alt="Community Service">
+                <div class="photo-overlay">
+                    <h4 data-en="Community Service" data-te="సమాజ సేవ">Community Service</h4>
+                    <p data-en="Serving those in need" data-te="అవసరంలో ఉన్నవారికి సేవ">Serving those in need</p>
+                </div>
+            </div>
+            
+            <div class="photo-item fade-in" data-aos="fade-up" data-aos-delay="500">
+                <img src="https://via.placeholder.com/400x250/1abc9c/ffffff?text=Baptism+Service" alt="Baptism Service">
+                <div class="photo-overlay">
+                    <h4 data-en="Baptism Service" data-te="బాప్టిజం సేవ">Baptism Service</h4>
+                    <p data-en="New life in Christ" data-te="క్రీస్తులో కొత్త జీవితం">New life in Christ</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prayer Request Section -->
+    <section class="section" id="prayer">
+        <h2 class="section-title" data-en="Prayer Request" data-te="ప్రార్థన అభ్యర్థన">Prayer Request</h2>
+        <div class="prayer-form fade-in" data-aos="fade-up">
+            <form id="prayerForm">
+                <div class="form-group">
+                    <label for="name" data-en="Your Name" data-te="మీ పేరు">Your Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email" data-en="Email Address" data-te="ఇమెయిల్ చిరునామా">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone" data-en="Phone Number" data-te="ఫోన్ నంబర్">Phone Number</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                
+                <div class="form-group">
+                    <label for="prayer-request" data-en="Prayer Request" data-te="ప్రార్థన అభ్యర్థన">Prayer Request</label>
+                    <textarea id="prayer-request" name="prayer-request" rows="6" placeholder="Share your prayer request..." required></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn" data-en="Submit Prayer Request" data-te="ప్రార్థన అభ్యర్థన సమర్పించండి">
+                    <span class="btn-text">Submit Prayer Request</span>
+                    <span class="loading" style="display: none;"></span>
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Photo Upload Section (Admin) -->
+    <section class="section" id="admin">
+        <h2 class="section-title" data-en="Admin - Upload Photos" data-te="అడ్మిన్ - ఫోటోలు అప్‌లోడ్ చేయండి">Admin - Upload Photos</h2>
+        <div class="upload-section fade-in" data-aos="fade-up">
+            <div style="margin-bottom: 20px;">
+                <i class="fas fa-cloud-upload-alt" style="font-size: 3rem; color: var(--secondary-color);"></i>
+                <h3 data-en="Upload New Photos" data-te="కొత్త ఫోటోలు అప్‌లోడ్ చేయండి">Upload New Photos</h3>
+                <p data-en="Pastor can upload church photos, service moments, and community activities" data-te="పాస్టర్ చర్చి ఫోటోలు, సేవా క్షణాలు మరియు సంఘ కార్యకలాపాలను అప్‌లోడ్ చేయవచ్చు">Pastor can upload church photos, service moments, and community activities</p>
+            </div>
+            
+            <input type="file" id="photoUpload" accept="image/*" multiple style="display: none;">
+            <button type="button" class="upload-btn" onclick="document.getElementById('photoUpload').click()" data-en="📷 Choose Photos to Upload" data-te="📷 అప్‌లోడ్ చేయడానికి ఫోటోలను ఎంచుకోండి">📷 Choose Photos to Upload</button>
+            
+            <div id="uploadPreview" style="margin-top: 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px;"></div>
+            
+            <div style="margin-top: 20px;">
+                <input type="text" id="photoCategory" placeholder="Photo category (e.g., Sunday Service, Youth Event)" style="width: 100%; padding: 10px; border: 2px solid #e0e0e0; border-radius: 8px; margin-bottom: 10px;">
+                <button type="button" class="submit-btn" onclick="uploadPhotos()" data-en="🚀 Upload to Gallery" data-te="🚀 గ్యాలరీకి అప్‌లోడ్ చేయండి" style="width: auto; padding: 12px 30px;">🚀 Upload to Gallery</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- QR Code & Offerings Section -->
+    <section class="section" id="offerings">
+        <h2 class="section-title" data-en="Support Our Ministry" data-te="మా సేవను మద్దతు ఇవ్వండి">Support Our Ministry</h2>
+        <div class="qr-section fade-in" data-aos="fade-up">
+            <h3 data-en="Digital Offerings" data-te="డిజిటల్ కానుకలు">Digital Offerings</h3>
+            <p data-en="Your generous offerings help us spread God's love and serve our community" data-te="మీ ఉదార కానుకలు దేవుని ప్రేమను వ్యాప్తి చేయడానికి మరియు మా సంఘానికి సేవ చేయడానికి మాకు సహాయపడతాయి">Your generous offerings help us spread God's love and serve our community</p>
+            
+            <div class="qr-code">
+                <!-- QR Code will be generated here -->
+                <div style="text-align: center;">
+                    <i class="fas fa-qrcode" style="font-size: 60px; color: #666; margin-bottom: 10px;"></i>
+                    <p data-en="QR Code for UPI Payment" data-te="UPI చెల్లింపు కోసం QR కోడ్">QR Code for UPI Payment</p>
+                    <small>pastorkarunakar@upi</small>
+                </div>
+            </div>
+            
+            <div class="bible-verse">
+                <p data-en="'Give, and it will be given to you. A good measure, pressed down, shaken together and running over, will be poured into your lap. For with the measure you use, it will be measured to you.' - Luke 6:38" data-te="'ఇవ్వండి, అప్పుడు మీకు ఇవ్వబడుతుంది. మంచి కొలత, నొక్కబడి, వణుకబడి మరియు పొంగి పోయేలా మీ కౌలులో పోయబడుతుంది. ఎందుకంటే మీరు వాడే కొలతతో మీకు కొలవబడుతుంది.' - లూకా 6:38">"Give, and it will be given to you. A good measure, pressed down, shaken together and running over, will be poured into your lap. For with the measure you use, it will be measured to you." - Luke 6:38</p>
+            </div>
+            
+            <div style="margin-top: 30px;">
+                <h4 data-en="Other Ways to Give:" data-te="ఇవ్వడానికి ఇతర మార్గాలు:">Other Ways to Give:</h4>
+                <p data-en="Bank Transfer: Account No. 1234567890" data-te="బ్యాంక్ బదిలీ: ఖాతా నం. 1234567890">Bank Transfer: Account No. 1234567890</p>
+                <p data-en="IFSC Code: BANK001234" data-te="IFSC కోడ్: BANK001234">IFSC Code: BANK001234</p>
+                <p data-en="Account Name: Church of Pastor Karunakar" data-te="ఖాతా పేరు: పాస్టర్ కరుణాకర్ చర్చి">Account Name: Church of Pastor Karunakar</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background: var(--primary-color); color: white; text-align: center; padding: 40px 20px;">
+        <div style="max-width: 800px; margin: 0 auto;">
+            <h3 data-en="Pastor Karunakar Obhalloju" data-te="పాస్టర్ కరుణాకర్ ఓభల్లోజు">Pastor Karunakar Obhalloju</h3>
+            <p data-en="Spreading God's Love | Building Faith Communities" data-te="దేవుని ప్రేమను వ్యాప్తి చేస్తున్నాడు | విశ్వాస సంఘాలను నిర్మిస్తున్నాడు">Spreading God's Love | Building Faith Communities</p>
+            
+            <div style="margin: 30px 0; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                <a href="https://facebook.com/pastorkarunakar" style="color: white; font-size: 1.5rem; transition: color 0.3s ease;" target="_blank">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://instagram.com/pastorkarunakar" style="color: white; font-size: 1.5rem; transition: color 0.3s ease;" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://wa.me/919876543210" style="color: white; font-size: 1.5rem; transition: color 0.3s ease;" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="tel:+919876543210" style="color: white; font-size: 1.5rem; transition: color 0.3s ease;">
+                    <i class="fas fa-phone"></i>
+                </a>
+            </div>
+            
+            <p style="margin-top: 20px; opacity: 0.8; font-size: 14px;" data-en="© 2025 Pastor Karunakar Obhalloju. All rights reserved. Built with love and faith." data-te="© 2025 పాస్టర్ కరుణాకర్ ఓభల్లోజు. అన్ని హక్కులు రక్షించబడ్డాయి. ప్రేమ మరియు విశ్వాసంతో నిర్మించబడింది.">© 2025 Pastor Karunakar Obhalloju. All rights reserved. Built with love and faith.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Initialize AOS (Animate On Scroll)
+        AOS.init({
+            duration: 1000,
+            easing: 'ease-in-out',
+            once: true
+        });
+
+        // Language Toggle Functionality
+        let currentLang = 'en';
+        
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'te' : 'en';
+            updateLanguage();
+        }
+        
+        function updateLanguage() {
+            const elements = document.querySelectorAll('[data-en][data-te]');
+            const langText = document.getElementById('lang-text');
+            
+            elements.forEach(element => {
+                if (currentLang === 'en') {
+                    element.textContent = element.getAttribute('data-en');
+                    langText.textContent = 'తెలుగు';
+                } else {
+                    element.textContent = element.getAttribute('data-te');
+                    langText.textContent = 'English';
+                }
+            });
+            
+            // Update form placeholders
+            const prayerTextarea = document.getElementById('prayer-request');
+            if (prayerTextarea) {
+                prayerTextarea.placeholder = currentLang === 'en' 
+                    ? 'Share your prayer request...' 
+                    : 'మీ ప్రార్థన అభ్యర్థనను పంచుకోండి...';
+            }
+            
+            const photoCategoryInput = document.getElementById('photoCategory');
+            if (photoCategoryInput) {
+                photoCategoryInput.placeholder = currentLang === 'en' 
+                    ? 'Photo category (e.g., Sunday Service, Youth Event)' 
+                    : 'ఫోటో వర్గం (ఉదా., ఆదివారం సేవ, యువజన కార్యక్రమం)';
+            }
+        }
+
+        // Smooth Scrolling for Navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar Show/Hide on Scroll
+        let lastScrollTop = 0;
+        const navbar = document.getElementById('navbar');
+        
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+            
+            lastScrollTop = scrollTop;
+        });
+
+        // Fade-in Animation Observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Prayer Form Submission
+        document.getElementById('prayerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitBtn = this.querySelector('.submit-btn');
+            const btnText = submitBtn.querySelector('.btn-text');
+            const loading = submitBtn.querySelector('.loading');
+            
+            // Show loading state
+            btnText.style.display = 'none';
+            loading.style.display = 'inline-block';
+            submitBtn.disabled = true;
+            
+            // Get form data
+            const formData = new FormData(this);
+            const prayerData = {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                phone: formData.get('phone'),
+                request: formData.get('prayer-request')
+            };
+            
+            // Simulate email sending (replace with actual email service)
+            setTimeout(() => {
+                // Reset form
+                this.reset();
+                
+                // Reset button state
+                btnText.style.display = 'inline';
+                loading.style.display = 'none';
+                submitBtn.disabled = false;
+                
+                // Show success message
+                alert(currentLang === 'en' 
+                    ? 'Your prayer request has been sent to Pastor Karunakar. May God bless you!' 
+                    : 'మీ ప్రార్థన అభ్యర్థన పాస్టర్ కరుణాకర్‌కు పంపబడింది. దేవుడు మిమ్మల్ని ఆశీర్వదించనీ!');
+                
+                // Here you would typically send the data to your backend or email service
+                console.log('Prayer request submitted:', prayerData);
+            }, 2000);
+        });
+
+        // Photo Upload Functionality
+        document.getElementById('photoUpload').addEventListener('change', function(e) {
+            const files = Array.from(e.target.files);
+            const preview = document.getElementById('uploadPreview');
+            preview.innerHTML = '';
+            
+            files.forEach(file => {
+                if (file.type.startsWith('image/')) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        const div = document.createElement('div');
+                        div.style.cssText = 'position: relative; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1);';
+                        div.innerHTML = `
+                            <img src="${e.target.result}" style="width: 100%; height: 120px; object-fit: cover;">
+                            <div style="position: absolute; top: 5px; right: 5px; background: rgba(255,0,0,0.8); color: white; border-radius: 50%; width: 25px; height: 25px; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 12px;" onclick="this.parentElement.remove()">×</div>
+                        `;
+                        preview.appendChild(div);
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+        });
+
+        function uploadPhotos() {
+            const files = document.getElementById('photoUpload').files;
+            const category = document.getElementById('photoCategory').value;
+            
+            if (files.length === 0) {
+                alert(currentLang === 'en' ? 'Please select photos to upload.' : 'దయచేసి అప్‌లోడ్ చేయడానికి ఫోటోలను ఎంచుకోండి.');
+                return;
+            }
+            
+            if (!category.trim()) {
+                alert(currentLang === 'en' ? 'Please enter a category for the photos.' : 'దయచేసి ఫోటోలకు వర్గాన్ని నమోదు చేయండి.');
+                return;
+            }
+            
+            // Simulate upload process
+            const uploadBtn = event.target;
+            const originalText = uploadBtn.textContent;
+            uploadBtn.textContent = currentLang === 'en' ? '⏳ Uploading...' : '⏳ అప్‌లోడ్ చేస్తోంది...';
+            uploadBtn.disabled = true;
+            
+            setTimeout(() => {
+                alert(currentLang === 'en' 
+                    ? `Successfully uploaded ${files.length} photos to "${category}" category!` 
+                    : `"${category}" వర్గంలో ${files.length} ఫోటోలు విజయవంతంగా అప్‌లోడ్ చేయబడ్డాయి!`);
+                
+                // Reset form
+                document.getElementById('photoUpload').value = '';
+                document.getElementById('photoCategory').value = '';
+                document.getElementById('uploadPreview').innerHTML = '';
+                
+                uploadBtn.textContent = originalText;
+                uploadBtn.disabled = false;
+            }, 3000);
+        }
+
+        // Generate QR Code (simple implementation)
+        function generateQRCode() {
+            // In a real implementation, you would use a QR code library
+            // For now, we'll just show a placeholder
+            console.log('QR Code generated for UPI payment');
+        }
+
+        // Initialize
+        generateQRCode();
+        
+        // Add some interactive animations
+        document.querySelectorAll('.contact-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+        
+        // Parallax effect for header
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const header = document.querySelector('.header');
+            if (header) {
+                header.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+    </script>
+</body>
+</html>
